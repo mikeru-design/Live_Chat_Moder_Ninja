@@ -1,9 +1,8 @@
 import { initializeApp } from 'firebase/app';
 import Chatroom from './js/chat';
 import {
-  getFirestore,
-  collection,
-  onSnapshot,
+  getFirestore, collection, onSnapshot,
+  query, where, orderBy
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -20,8 +19,9 @@ initializeApp(firebaseConfig);
 
 const db = getFirestore();
 export const chatsColRef = collection(db, 'chats');
+const q = query(chatsColRef, where('room', '==', 'general'), orderBy('created_at', 'desc'))
 
-onSnapshot(chatsColRef, (snapshot) => {
+onSnapshot(q, (snapshot) => {
   let chats = [];
     for (const doc of snapshot.docs) {
       chats.push({ ...doc.data(), id: doc.id })

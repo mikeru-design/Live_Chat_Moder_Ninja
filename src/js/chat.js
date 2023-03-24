@@ -1,5 +1,5 @@
 import { chatsColRef } from '..';
-import { addDoc } from 'firebase/firestore';
+import { addDoc, query, where } from 'firebase/firestore';
 
 export default class Chatroom {
   constructor(room, username){
