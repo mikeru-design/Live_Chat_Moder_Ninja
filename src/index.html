@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Live_Chat</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+
+  <section class="mainContainer container">
+    <h1 class="mainTitle"> Live_Chat </h1>
+
+    <section class="roomSelection container">
+      <p>Choose a chatroom:</p>
+      <div class="btn mx-2" id="general"> #general </div>
+      <div class="btn mx-2" id="gaming"> #gaming </div>
+      <div class="btn mx-2" id="music"> #music </div>
+      <div class="btn mx-2" id="ninjas"> #ninjas </div>
+    </section>
+
+    <section class="chat">
+      <div class="chat-window">
+        <ul class="chat-list list-group"></ul>
+      </div>
+
+      <section class="inputsContainer container">
+        <div class="messageInput input-group mb-3">
+          <span class="input-group-text">Your message:</span>
+          <input type="text" class="form-control" id="message" placeholder="Type your message here" aria-label="User message" aria-describedby="send-button">
+          <button class="btn btn-secondary" type="button" id="send-msg-button">Send</button>
+        </div>
+
+        <div class="nameInput input-group mb-3">
+          <span class="input-group-text">Update name:</span>
+          <input type="text" class="form-control" id="name" placeholder="Type your name here" aria-label="User message" aria-describedby="send-button">
+          <button class="btn btn-secondary" type="button" id="send-name-button">Update</button>
+        </div>
+      </section>
+
+      <div class="update-mssg"></div>
+    </section>
+
+  </section>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+  <script src="bundle.js"></script>
+</body>
+</html>

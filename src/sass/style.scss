@@ -1,0 +1,49 @@
+@import 'settings';
+
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  // background-color: red;
+  font-family: 'Montserrat', sans-serif;
+  color: $text-color;
+}
+
+ul,li{
+  list-style: none;
+  text-decoration: none;
+}
+
+.btn{
+  // background-color: #43d9be;
+  background-color: $teal;
+  outline: none !important;
+  box-shadow: none !important;
+  border-color: none !important;
+  color: white;
+}
+
+.inputsContainer{
+  .btn{
+    min-width: 10%;
+  }
+
+  .input-group-text{
+    min-width: 12%;
+  }
+}
+
+section{
+  margin-top: 50px;
+}
+
+.mainContainer{
+  text-align: center;
+
+  .mainTitle{
+    font-size: 4rem;
+  }
+}
