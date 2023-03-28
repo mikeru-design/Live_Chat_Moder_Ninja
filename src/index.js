@@ -19,16 +19,14 @@ const chatList = document.querySelector('.chat-list');
 const addMessage = document.querySelector('.messageInput');
 const nameInput = document.querySelector('.nameInput');
 const roomSelection = document.querySelector('.roomSelection');
+const updateUserMsg = document.querySelector('.update-msg');
 const roomSelBtn = document.querySelectorAll('.roomSelBtn');
-const unSubBtn = document.querySelectorAll('#unSub');
-console.log(roomSelBtn);
 
 const db = getFirestore();
 const chatsCollRef = collection(db, 'chats');
 
 let room = '';
-let username = 'guest';
-let subToCol = '';
+let username = localStorage.username ? localStorage.username : 'guest';
 
 const addClassToRoomBtn = (e) => {
   for ( const selBtn of roomSelBtn ) {
@@ -47,18 +45,15 @@ const addMsg = () => {
   if ( message.message && message.room ) {
     addDoc(chatsCollRef, message)
       .then(() => {
-        console.log('chat added');
+        // console.log('chat added');
         addMessage.reset();
       })
       .catch(err => console.log(err));
   }
 };
-const updUsername = () => {
-  if ( nameInput.name.value ) {
-    username = nameInput.name.value;
-    console.log('username updated to',username);
-    nameInput.reset();
-  }
+const updUsername = (username) => {
+  updateUserMsg.innerHTML = `<p>Your current username is <span class="newUsername">${username}</span></p>`;
+  setTimeout(()=>{updateUserMsg.innerHTML = '';}, 3000);
 };
 
 
@@ -71,7 +66,7 @@ roomSelection.addEventListener('click', e => {
       room = e.target.getAttribute('id');
       const q = query(chatsCollRef, where('room', '==', room), orderBy('created_at', 'desc'));
 
-      subToCol = onSnapshot(q, (snapshot) => {
+      onSnapshot(q, (snapshot) => {
         let messagesData = [];
         let HTML = ``;
 
@@ -113,12 +108,17 @@ addMessage.addEventListener('submit', e => {
 nameInput.addEventListener('submit', e => {
   e.preventDefault();
 
-  updUsername();
+  if ( nameInput.name.value ) {
+    username = nameInput.name.value;
+
+    updUsername(username);
+
+    localStorage.setItem('username', username);
+    nameInput.reset();
+  }
 });
 
-unSubBtn.addEventListener('click', () => {
-  subToCol();
-});
+updUsername(username);
 
 
 

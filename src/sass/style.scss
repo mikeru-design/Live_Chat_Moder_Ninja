@@ -18,12 +18,19 @@ ul,li{
 }
 
 .btn{
-  // background-color: #43d9be;
   background-color: $teal;
   outline: none !important;
   box-shadow: none !important;
   border-color: none !important;
   color: white;
+
+  &:active{
+    background-color: $teal;
+  }
+
+  &:focus{
+    background-color: $teal;
+  }
 
   &:hover{
     background-color: #5c636a;
@@ -39,14 +46,6 @@ ul,li{
 .inputsContainer{
   .btn{
     min-width: 10%;
-
-    &:active{
-      background-color: $teal;
-    }
-
-    &:focus{
-      background-color: $teal;
-    }
   }
 
   .input-group-text{
@@ -113,4 +112,12 @@ section{
       }
     }
   }
+}
+
+.newUsername{
+  display: inline-block;
+  margin-left: 10px;
+  letter-spacing: 1px;
+  font-weight: 900;
+  color: grey;
 }
