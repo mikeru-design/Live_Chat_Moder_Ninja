@@ -1,5 +1,5 @@
 import { chatsColRef } from '..';
-import { addDoc, query, where } from 'firebase/firestore';
+import { addDoc } from 'firebase/firestore';
 
 export default class Chatroom {
   constructor(room, username){
@@ -10,7 +10,7 @@ export default class Chatroom {
 
   async addChat(message) {
     const chat = {
-      message,
+      message: message,
       username: this.username,
       room: this.room,
       created_at: new Date(),
@@ -18,6 +18,7 @@ export default class Chatroom {
 
     const response = await addDoc(chatsColRef, chat);
     return response;
+
   }
 }
 

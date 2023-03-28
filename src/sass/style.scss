@@ -24,15 +24,37 @@ ul,li{
   box-shadow: none !important;
   border-color: none !important;
   color: white;
+
+  &:hover{
+    background-color: #5c636a;
+    color: #fff;
+  }
+}
+
+.activeRoom{
+  background-color: #5c636a;
+  color: #fff;
 }
 
 .inputsContainer{
   .btn{
     min-width: 10%;
+
+    &:active{
+      background-color: $teal;
+    }
+
+    &:focus{
+      background-color: $teal;
+    }
   }
 
   .input-group-text{
     min-width: 12%;
+  }
+
+  .form-control:focus{
+    box-shadow: none !important;
   }
 }
 
@@ -45,5 +67,50 @@ section{
 
   .mainTitle{
     font-size: 4rem;
+  }
+}
+
+.chat{
+  .inputsContainer{
+    margin-top: 0;
+  }
+
+  .chat-list{
+    .message{
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      justify-content: center;
+      align-items: start;
+
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 10px 20px;
+
+      border: 1px solid #ced4da;
+      border-radius: .25rem;
+
+      .username{
+        flex-grow: 0;
+        margin-bottom: .3rem;
+        letter-spacing: 1px;
+        font-weight: 900;
+        color: grey;
+      }
+
+      .message-text{
+        flex-grow: 1;
+        text-align: left;
+      }
+
+      .time{
+        // width: 100%;
+        align-self: flex-end;
+        margin-bottom: 0;
+        text-align: right;
+        font-size: .8rem;
+        color: grey;
+      }
+    }
   }
 }

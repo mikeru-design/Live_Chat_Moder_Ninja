@@ -21,33 +21,38 @@
 
     <section class="roomSelection container">
       <p>Choose a chatroom:</p>
-      <div class="btn mx-2" id="general"> #general </div>
-      <div class="btn mx-2" id="gaming"> #gaming </div>
-      <div class="btn mx-2" id="music"> #music </div>
-      <div class="btn mx-2" id="ninjas"> #ninjas </div>
+      <div class="btn roomSelBtn mx-2" id="general"> #general </div>
+      <div class="btn roomSelBtn mx-2" id="gaming"> #gaming </div>
+      <div class="btn roomSelBtn mx-2" id="music"> #music </div>
+      <div class="btn roomSelBtn mx-2" id="ninjas"> #ninjas </div>
     </section>
 
     <section class="chat">
       <div class="chat-window">
-        <ul class="chat-list list-group"></ul>
+        <ul class="chat-list list-group">
+
+        </ul>
       </div>
 
       <section class="inputsContainer container">
-        <div class="messageInput input-group mb-3">
+        <form class="messageInput input-group mb-3">
           <span class="input-group-text">Your message:</span>
           <input type="text" class="form-control" id="message" placeholder="Type your message here" aria-label="User message" aria-describedby="send-button">
-          <button class="btn btn-secondary" type="button" id="send-msg-button">Send</button>
-        </div>
+          <button class="btn btn-secondary" type="submit" id="send-msg-button">Send</button>
+        </form>
 
-        <div class="nameInput input-group mb-3">
+        <form class="nameInput input-group mb-3">
           <span class="input-group-text">Update name:</span>
           <input type="text" class="form-control" id="name" placeholder="Type your name here" aria-label="User message" aria-describedby="send-button">
-          <button class="btn btn-secondary" type="button" id="send-name-button">Update</button>
-        </div>
+          <button class="btn btn-secondary" type="submit" id="send-name-button">Update</button>
+        </form>
       </section>
 
-      <div class="update-mssg"></div>
+      <div class="update-msg container">
+      </div>
     </section>
+
+    <button class="btn btn-secondary" type="button" id="unSub">unSub</button>
 
   </section>
 
