@@ -26,7 +26,7 @@ const db = getFirestore();
 const chatsCollRef = collection(db, 'chats');
 
 let room = '';
-let username = localStorage.username ? localStorage.username : 'guest';
+let username = localStorage.username ? localStorage.username : 'Guest';
 
 const addClassToRoomBtn = (e) => {
   for ( const selBtn of roomSelBtn ) {
@@ -53,7 +53,7 @@ const addMsg = () => {
 };
 const updUsername = (username) => {
   updateUserMsg.innerHTML = `<p>Your current username is <span class="newUsername">${username}</span></p>`;
-  setTimeout(()=>{updateUserMsg.innerHTML = '';}, 3000);
+  setTimeout(() => { updateUserMsg.innerHTML = ''; }, 5000);
 };
 
 
@@ -118,7 +118,7 @@ nameInput.addEventListener('submit', e => {
   }
 });
 
-updUsername(username);
+setTimeout( () => {updUsername(username);}, 3000);
 
 
 
