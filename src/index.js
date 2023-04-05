@@ -35,6 +35,7 @@ const addClassToRoomBtn = (e) => {
   e.target.classList.add('activeRoom');
 };
 const addMsg = () => {
+
   const message = {
     message: addMessage.message.value,
     username: username,
@@ -50,12 +51,17 @@ const addMsg = () => {
       })
       .catch(err => console.log(err));
   }
+  else if ( !room ) {
+    updateUserMsg.innerHTML = `<p>Please <span class="newUsername">choose a room</span> you want to chat at...</span>`;
+    setTimeout(() => { updateUserMsg.innerHTML = ''; }, 5000);
+  }
 };
 const updUsername = (username) => {
   updateUserMsg.innerHTML = `<p>Your current username is <span class="newUsername">${username}</span></p>`;
   setTimeout(() => { updateUserMsg.innerHTML = ''; }, 5000);
 };
 
+setTimeout( () => {updUsername(username);}, 3000);
 
 roomSelection.addEventListener('click', e => {
   if ( e.target.className.includes("btn") ) {
@@ -117,8 +123,3 @@ nameInput.addEventListener('submit', e => {
     nameInput.reset();
   }
 });
-
-setTimeout( () => {updUsername(username);}, 3000);
-
-
-
